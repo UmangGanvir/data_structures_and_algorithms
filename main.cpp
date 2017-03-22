@@ -7,7 +7,7 @@ int main() {
     int N;
     cin>>N;
     while( N-- ){
-        cout<<N<<endl;
+
     }
     return 0;
 }
