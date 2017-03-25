@@ -3,11 +3,14 @@
 #include <vector>
 using namespace std;
 
-int main() {
-    int N;
-    cin>>N;
-    while( N-- ){
+int methodName( string A ){
+    return 123;
+}
 
-    }
+int main() {
+
+    string A = "Umang";
+    cout<<"Ans: "<<methodName( A )<<endl;
+
     return 0;
 }
