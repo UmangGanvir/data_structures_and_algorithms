@@ -134,3 +134,6 @@ CTestTestfile.cmake
 
 # End of https://www.gitignore.io/api/c++,cmake,c,clion
 .idea/vcs.xml
+
+## Custom ignores
+cmake-build-debug
