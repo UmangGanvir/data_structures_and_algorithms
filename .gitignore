@@ -137,3 +137,4 @@ CTestTestfile.cmake
 
 ## Custom ignores
 cmake-build-debug
+unsolved_problems
