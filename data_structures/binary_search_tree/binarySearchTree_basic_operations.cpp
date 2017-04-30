@@ -92,13 +92,22 @@ bool search( Node* root, int data ){
     return false;
 }
 
+int heightOfTree( Node* root ){
+    if( root == NULL )
+        return -1;
+    return 1 + max( heightOfTree( root->left ), heightOfTree(root->right) );
+}
+
 int main() {
 
     /*
      *          10
      *      7       15
      *       8    12
+     *        9
      * */
+
+    /* Insertion, Search */
 
     // Recursive Implementations
 
@@ -108,6 +117,7 @@ int main() {
     root = insertRecursive( root, 12 );
     root = insertRecursive( root, 7 );
     root = insertRecursive( root, 8 );
+    root = insertRecursive( root, 9 );
 
     cout<<"8 was recursively "<<(searchRecursive( root, 8 ) ? "found!" : "not found!")<<endl;
     cout<<"25 was recursively "<<(searchRecursive( root, 25 ) ? "found!" : "not found!")<<endl;
@@ -119,9 +129,13 @@ int main() {
     root2 = insert( root2, 12 );
     root2 = insert( root2, 7 );
     root2 = insert( root2, 8 );
+    root2 = insert( root2, 9 );
 
     cout<<"8 was iteratively "<<(search( root2, 8 ) ? "found!" : "not found!")<<endl;
     cout<<"25 was iteratively "<<(search( root2, 25 ) ? "found!" : "not found!")<<endl;
+
+    /* Height */
+    cout<<"Height of tree: "<<heightOfTree( root )<<endl;
 
     return 0;
 }
