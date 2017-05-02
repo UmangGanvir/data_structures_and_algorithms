@@ -57,10 +57,8 @@ void preOrderTraversal( Node* root ){
         return;
 
     cout<<root->data<<" ";
-    if( root->left != NULL )
-        preOrderTraversal( root->left );
-    if( root->right != NULL )
-        preOrderTraversal( root->right );
+    preOrderTraversal( root->left );
+    preOrderTraversal( root->right );
 }
 
 /**
@@ -72,13 +70,9 @@ void inOrderTraversal( Node* root ){
     if( root == NULL )
         return;
 
-    if( root->left != NULL )
-        inOrderTraversal( root->left );
-
+    inOrderTraversal( root->left );
     cout<<root->data<<" ";
-
-    if( root->right != NULL )
-        inOrderTraversal( root->right );
+    inOrderTraversal( root->right );
 }
 
 /**
@@ -89,11 +83,8 @@ void postOrderTraversal( Node* root ){
     if( root == NULL )
         return;
 
-    if( root->left != NULL )
-        postOrderTraversal( root->left );
-    if( root->right != NULL )
-        postOrderTraversal( root->right );
-
+    postOrderTraversal( root->left );
+    postOrderTraversal( root->right );
     cout<<root->data<<" ";
 }
 
