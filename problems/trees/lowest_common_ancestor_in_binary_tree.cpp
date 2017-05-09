@@ -33,10 +33,6 @@ int findDepth( int val, TreeNode* root, int currDepth, vector<int>& path ){
 }
 
 int lca(TreeNode* A, int val1, int val2) {
-    // Do not write main() function.
-    // Do not read input, instead use the arguments to the function.
-    // Do not print the output, instead return values as specified
-    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
 
     vector<int> path1;
     int depth1 = findDepth( val1, A, 0, path1 );
