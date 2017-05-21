@@ -33,7 +33,7 @@ int longestIncreasingSubsequence( vector<int> A ){
 int main() {
 
     vector<int> A = { 3, 10, 2, 1, 20 };
-    cout<<"longestIncreasingSubsequence: "<<longestIncreasingSubsequence( A )<<endl;
+    cout<<"longestIncreasingSubsequence: "<<longestIncreasingSubsequence( A )<<endl;    // 3
 
     return 0;
 }
