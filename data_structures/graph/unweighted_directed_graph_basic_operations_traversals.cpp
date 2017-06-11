@@ -3,6 +3,7 @@
 #include <vector>
 #include <list>
 #include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -16,6 +17,7 @@ public:
     void addEdge( int u, int v );
     void BFS( int s );
     void DFS( int s );
+    void DFSIterative( int s );
 };
 
 Graph::Graph( int V ){
@@ -53,7 +55,7 @@ void Graph::BFS(int s) {
 
 }
 
-void Graph::DFS(int s) {
+void Graph::DFS(int s) {            // using an implicit stack( function stack )
     vector<bool> visited((unsigned long) this->V, false );
     DFSUtil( s, visited );
 }
@@ -75,6 +77,40 @@ void Graph::DFSUtil(int s, vector<bool> &visited) {
     }
 }
 
+void Graph::DFSIterative(int s) {       // using an explicit stack
+
+    vector<bool> visited((unsigned long) this->V, false );
+    stack<int> stack1;
+
+    // mark current node as visited
+    cout<<s<<" ";
+    visited[s] = true;
+    stack1.push( s );
+
+    while( !stack1.empty() ){
+
+
+        int currentNode = stack1.top();
+
+        bool unvisitedNodeFound = false;
+        for( auto it = this->adj[currentNode].begin(); it != this->adj[currentNode].end(); it++ ){
+            if( !visited[*it] ){
+                unvisitedNodeFound = true;
+
+                // mark this node as visited
+                cout<<*it<<" ";
+                visited[ *it ] = true;
+                stack1.push( *it );
+                break;
+            }
+        }
+
+        if( !unvisitedNodeFound ){
+            stack1.pop();
+        }
+    }
+}
+
 int main() {
 
     Graph g(4);
@@ -91,6 +127,10 @@ int main() {
 
     cout<<"DFS: ";
     g.DFS( 2 );
+    cout<<endl;
+
+    cout<<"DFS Iterative: ";
+    g.DFSIterative( 2 );
     cout<<endl;
 
     return 0;
