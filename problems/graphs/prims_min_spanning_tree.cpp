@@ -104,8 +104,11 @@ map<Node*,Node*> Graph::primMST(){
 
             auto nodeKeyNeighbourIt = nodeKey.find( neighbouringNode );
             auto nodeKeyCurrNodeIt = nodeKey.find( minKeyNode );
-            if( nodeKeyNeighbourIt->second > nodeKeyCurrNodeIt->second + this->edgeWeight( minKeyNode, neighbouringNode ) ){
-                nodeKeyNeighbourIt->second = nodeKeyCurrNodeIt->second + this->edgeWeight( minKeyNode, neighbouringNode );
+            if(
+                    this->edgeWeight( minKeyNode, neighbouringNode ) &&
+                    nodeKeyNeighbourIt->second > this->edgeWeight( minKeyNode, neighbouringNode )
+                    ){
+                nodeKeyNeighbourIt->second = this->edgeWeight( minKeyNode, neighbouringNode );
 
                 pair<Node*,Node*> parentPair1( neighbouringNode, minKeyNode );
                 parent.insert( parentPair1 );
